@@ -1,0 +1,11 @@
+extends base
+
+block title
+  = page.title
+  != ' &laquo; '
+  = config.title
+
+block content
+  .post.single.hentry
+    h1.entry-title= page.title
+    .entry-content!= page.content
