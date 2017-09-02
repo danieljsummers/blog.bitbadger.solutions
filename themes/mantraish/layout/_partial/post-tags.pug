@@ -1,0 +1,8 @@
+- var it = post || page
+if it.tags && it.tags.length > 0
+  = 'Tagged '
+  - var tags = it.tags.toArray()
+  for tag in tags
+    a(href=url_for(tag.path) title='Posts tagged "' + tag.name + '"' rel='tag')= tag.name
+    if tags.indexOf(tag) < (tags.length - 1)
+      = ', '

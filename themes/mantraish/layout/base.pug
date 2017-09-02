@@ -1,0 +1,13 @@
+doctype html
+html(lang=config.language)
+  include _partial/head.pug
+  body
+    #toTop
+    #wrapper.hfeed
+      include _partial/header.pug
+      #main
+        #forbottom
+          section#container
+            #content(role='main'): block content
+            include _partial/sidebar.pug
+      include _partial/footer.pug

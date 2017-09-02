@@ -1,0 +1,35 @@
+extends base
+
+block title
+  = page.title
+  != ' &laquo; '
+  = config.title
+
+block content
+  .post.single.hentry
+    h1.entry-title= page.title
+    .entry-meta
+      | &nbsp;
+      span.author.vcard.
+        By #[= page.author] #[span.bl_sep= '| ']
+      span.ondate: span.entry-date.
+        #[= page.date.format('MMMM D, YYYY')] at #[= page.date.format('h:mm a')] #[span.bl_sep= '| ']
+      span.bl_categ
+        include _partial/post-categories.pug
+    .entry-content!= page.content
+    .entry-utility
+      span.bl_posted
+        include _partial/post-tags.pug
+      if page.tags && page.tags.length > 0
+        span.bl_sep= ' | '
+      span.bl_bookmark.
+        Bookmark the #[a(title='Permanent link to ' + page.title href=url_for(page.path) rel='bookmark') permalink].
+  #nav-below.navigation
+    .nav-previous
+      if page.prev
+        a(href=url_for(page.prev_link ? page.prev_link : page.prev.path) title='Previous Post - ' + page.prev.title).
+          #[span.meta-nav &laquo;] #[= page.prev.title]
+    .nav-next
+      if page.next
+        a(href=url_for(page.next_link ? page.next_link : page.next.path) title='Next Post - ' + page.next.title).
+          #[= page.next.title] #[span.meta-name &raquo;]

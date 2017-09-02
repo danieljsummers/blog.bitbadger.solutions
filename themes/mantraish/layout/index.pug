@@ -1,0 +1,65 @@
+extends base
+
+block title
+  if page.category
+    = page.category
+    != ' &laquo; '
+    = config.title
+  else
+    if page.tag
+      != '&ldquo;'
+      = page.tag
+      != '&rdquo; Tag &laquo; '
+      = config.title
+    else
+      if config.subtitle
+        = config.title + ' | ' + config.subtitle
+      else
+        = config.title
+
+block content
+  if page.tag || page.category
+    h1
+      if page.category
+        | Posts categorized &ldquo;
+        = page.category
+        | &rdquo;
+      else
+        | Posts tagged &ldquo;
+        = page.tag
+        | &rdquo;
+    hr
+  for post in page.posts.toArray()
+    article.post
+      header.entry-header
+        hgroup: h2.entry-title: a(href=url_for(post.path) title='Permalink to ' + post.title)!= post.title
+        .entry-meta
+          | &nbsp;&nbsp;
+          span.author.vcard
+            | By&nbsp;
+            = post.author
+            span.bl_sep &nbsp;|&nbsp;
+          span.ondate
+            span.entry-date.
+              #[= post.date.format('MMMM D, YYYY')] at #[= post.date.format('h:mm a')]
+              #[span.bl_sep |]
+          span.bl_categ
+            = ' '
+            include _partial/post-categories.pug
+      .entry-content!= post.content
+      footer.entry-meta2
+        span.bl_tagg
+          include _partial/post-tags.pug
+    br
+
+  #nav-below.navigation
+    .nav-previous
+      if page.prev
+        a(href=url_for(page.prev_link))
+          span.meta-nav &laquo;
+          | &nbsp;Newer Posts
+    .nav-next
+      if page.next
+        a(href=url_for(page.next_link))
+          | Older Posts&nbsp;
+          span.meta-nav &raquo;
