@@ -10,7 +10,7 @@ tags:
 - api
 - hoffmantown
 - english
-- espa&ntilde;ol
+- español
 - html
 - json
 - prayer

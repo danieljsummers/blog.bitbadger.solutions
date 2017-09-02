@@ -7,7 +7,7 @@ date: 2005-09-01 00:00:00
 aside {
   float: right;
   width: auto;
-  border: solid 2px darkgray;
+  border: dashed 1px #ddd;
   border-right: none;
   padding: 5px;
   border-radius: 10px;
@@ -21,8 +21,7 @@ aside p {
 }
 </style>
 
-<aside>
-  **Topics:**
+<aside>**Topics:**
   [What Do I Have?](#what)
   [Partitioning](#partitioning)
   [Installation](#installing)

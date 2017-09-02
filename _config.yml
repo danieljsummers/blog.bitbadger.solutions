@@ -55,7 +55,12 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  C++: c-plus-plus
+  C#: c-sharp
+  .NET: dot-net
 tag_map:
+  c#: c-sharp
+  .net: dot-net
 
 category_generator:
   per_page: 6
@@ -79,6 +84,13 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: mantraish
+
+# Feed
+feed:
+  type: rss2
+  path: feed.xml
+  limit: 10
+  content: true
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
