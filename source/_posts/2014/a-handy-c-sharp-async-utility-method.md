@@ -76,4 +76,4 @@ public class ExampleClass
 {% endcodeblock %}
 
 
-[async]: //msdn.microsoft.com/EN-US/library/vstudio/hh191443(v=vs.110).aspx "Asynchronous Programming with Async and Await - MSDN"
+[async]: //msdn.microsoft.com/EN-US/library/hh191443(v=vs.110).aspx "Asynchronous Programming with Async and Await - MSDN"

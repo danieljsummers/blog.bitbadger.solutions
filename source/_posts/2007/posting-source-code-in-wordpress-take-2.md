@@ -57,6 +57,6 @@ foreach($aCategories as $iThisCat) {
 This is another option, and is probably what I'll use for single-language posts, or posts where the embedded language may not be crucial.
 
 
-[wp-syntax]: //wordpress.org/extend/plugins/wp-syntax/ "WP Syntax Plugin"
-[GeSHi]:     //qbnz.com/highlighter/ "GeSHi"
+[wp-syntax]: //wordpress.org/plugins/wp-syntax/ "WP Syntax Plugin"
+[GeSHi]:     http://qbnz.com/highlighter/ "GeSHi"
 [Jekyll]:    //jekyllrb.com "Jekyll"

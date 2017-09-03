@@ -43,4 +43,4 @@ So, there you have it. Enjoy!
 
 [Tech Blog 2.0]: /2010/tech-blog-2-0.html "Tech Blog 2.0 &bull; DJS Consulting Tech Blog"
 [WordPress]:     //wordpress.org "WordPress"
-[BlogEngine]:    //dotnetblogengine.net "BlogEngine.NET"
+[BlogEngine]:    http://dnbe.net/docs/ "BlogEngine.NET"

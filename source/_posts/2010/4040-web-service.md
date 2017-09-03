@@ -15,7 +15,7 @@ summary: A web service to support the 2010 40/40 Prayer Vigil
 
 The [Ethics and Religious Liberty Commission][erlc] of the [Southern Baptist Convention][sbc] is holding a "[40/40 Prayer Vigil][site]," encouraging prayer through the end of October. While some of the prayer is focused on the upcoming elections, the focus is on national revival. They have produced a prayer guide, which details suggestions for prayer over the course of 40 days, beginning September 20th, and for 40 hours, beginning October 29th at 4pm.
 
-We have created a web service to break this guide up into day and hour-sized chunks. The service <del>is</del> _(UPDATE: was)_ at http://services.djs-consulting.com/FortyForty.asmx. There are several ways to retrieve this information.
+We have created a web service to break this guide up into day and hour-sized chunks. The service is <del>at this URL</del> no longer active. There are several ways to retrieve this information.
 
 * **GetDay**
   This gets one of the 40 days, by the day number. (September 20th is 1, September 21st is 2, etc.) The "day" parameter controls which day is returned.
@@ -35,6 +35,6 @@ If you're not interested in consuming the web service, but you'd like to see the
 This web service will be discontinued at some point after December 31, 2010.
 
 
-[erlc]: //erlc.com "The Ethics and Religious Liberty Commission of the Southern Baptist Convention"
-[sbc]:  //www.sbc.net "Southern Baptist Convention"
-[site]: //www.4040prayer.com "40/40 Prayer Vigil"
+[erlc]: http://erlc.com "The Ethics and Religious Liberty Commission of the Southern Baptist Convention"
+[sbc]:  http://www.sbc.net "Southern Baptist Convention"
+[site]: //4040prayer.wordpress.com "40/40 Prayer Vigil"

@@ -16,7 +16,7 @@ tags:
 summary: A script that allows Mono web applications to be defined and started the way Apache and nginx enable and disable their sites
 ---
 
-We've begun running Mono on some DJS Consulting servers to enable us to support the .NET environment, in addition to the PHP environment most of our other applications use. While Ubuntu has nice packages (and [Badgerports][] even brings them up to the latest release), one thing that we were missing was a "conf.d"-type of configuration; my "/applications=" clause of the command was getting really, really long. We decided to see if we could create something similar to Apache / Nginx's sites-available/sites-enabled paradigm, and we have succeeded!
+We've begun running Mono on some DJS Consulting servers to enable us to support the .NET environment, in addition to the PHP environment most of our other applications use. While Ubuntu has nice packages (and Badgerports even <del>brings</del> brought them up to the latest release), one thing that we were missing was a "conf.d"-type of configuration; my "/applications=" clause of the command was getting really, really long. We decided to see if we could create something similar to Apache / Nginx's sites-available/sites-enabled paradigm, and we have succeeded!
 
 To begin, you'll need to create the directories `/etc/mono/fcgi/apps-available` and `/etc/mono/fcgi/apps-enabled`. These directories will hold files that will be used define applications. The intent of these directories is to put the actual files in `apps-available`, then symlink the ones that are enabled from `apps-enabled`. These files have no name restrictions, but do not put an extra newline character in them. The script will concatenate the contents of that file to create the [MONO_FCGI_APPLICATIONS environment variable][env], which tells the server what applications exist. (The syntax is the same as that for the "/applications=" clause - `[domain]:[URL path]:[filesystem path]`.) Here's how the site you're reading now is configured (from the file `djs-consulting.com.techblog.conf`)...
 
@@ -24,7 +24,7 @@ To begin, you'll need to create the directories `/etc/mono/fcgi/apps-available` 
 techblog.djs-consulting.com:/:/path/to/install/base/for/this/site
 {% endcodeblock %}
 
-Finally, what brings it all together is a shell script. This should be named "monoserve" and placed in `/etc/init.d`. (This borrows heavily from [this script][scr], which we used until we wrote this one.) Note the group of variables surrounded by the "make changes here" notes - these are the values that are used in starting the server. They are at the top so that you can easily modify this for your own needs.
+Finally, what brings it all together is a shell script. This should be named "monoserve" and placed in `/etc/init.d`. (This borrows heavily from <del>this script</del> a script we found online, which we used until we wrote this one.) Note the group of variables surrounded by the "make changes here" notes - these are the values that are used in starting the server. They are at the top so that you can easily modify this for your own needs.
 
 {% codeblock monoserve lang:shell %}
 #/bin/bash
@@ -132,6 +132,4 @@ exit 0
 This needs to be owned by root and be executable (`chmod +x monoserve`). You can use `update-rc.d monoserve defaults` to set this to start at boot.
 
 
-[Badgerports]: //badgerports.org "Badgerports"
-[env]:         //www.mono-project.com/FastCGI "FastCGI &bull; Mono Project"
-[scr]:         //tomi.developmententity.sk/Blog/Post/2 "Linux startup script for mono FastCGI server &bull; Keep Coding"
+[env]: http://www.mono-project.com/docs/web/fastcgi/ "FastCGI &bull; Mono Project"

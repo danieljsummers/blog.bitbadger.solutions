@@ -22,7 +22,7 @@ After three years on [WordPress][], the DJS Consulting Tech Blog has moved to [B
 * Since I first looked at Mono (Linux's implementation of the .NET framework), it has matured significantly. It supports most of C# 4.0 already, which was released earlier this year.
 * BlogEngine.NET is a rapidly-maturing blog platform, and the project has a stated goal of 100% compatibility with Mono. This is good, because you can mention Mono problems to the team, and you're not dismissed because you're running Linux.
 
-As part of the move, the URL has changed; the new link is <https://techblog.djs-consulting.com>. I have implemented redirection for each post, the category and category feed links, and the main blog feed and home page from the old URL, so you may not have even realized that you're looking at the new site. The DJS Consulting Software Repository remains at <https://hosted.djs-consulting.com/software>.
+As part of the move, the URL has changed; the new link is <https://techblog.djs-consulting.com>. I have implemented redirection for each post, the category and category feed links, and the main blog feed and home page from the old URL, so you may not have even realized that you're looking at the new site. The DJS Consulting Software Repository remains at <https://hosted.djs-consulting.com/software/>.
 
 I'm looking forward to this new setup!
 
@@ -30,4 +30,4 @@ _(NOTE: The next-to-last paragraph was updated with correct links as of February
 
 
 [WordPress]:      //wordpress.org "WordPress"
-[BlogEngine.NET]: //dotnetblogengine.net "BlogEngine.NET"
+[BlogEngine.NET]: http://dnbe.net/docs/ "BlogEngine.NET"

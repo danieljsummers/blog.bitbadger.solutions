@@ -25,4 +25,4 @@ Now, you can easily create a DTS script through SQL Server to push or pull data 
 Happy migrating!
 
 
-[ic]: //www.oracle.com/technology/tech/oci/instantclient/index.html "Download Oracle Instant Client"
+[ic]: http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html "Download Oracle Instant Client"

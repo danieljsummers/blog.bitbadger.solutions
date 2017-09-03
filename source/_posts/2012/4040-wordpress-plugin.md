@@ -16,5 +16,5 @@ The plugin provides a widget that utilizes [the web service about which we previ
 Version 2012.0 is the version that's up there now. The Spanish translations of the options menu is not done yet, but you can specify Spanish prayer guides. Version 2012.1 will contain the localized options menu. If you run into any problems using it, you can submit issues against it at its WordPress Plugin Directory page.
 
 
-[pi]: //wordpress.org/extend/plugins/4040-prayer-vigil/ "40/40 Prayer Vigil &bull; WordPress Plugin Directory"
+[pi]: //wordpress.org/plugins/4040-prayer-vigil/ "40/40 Prayer Vigil &bull; WordPress Plugin Directory"
 [post]: /2012/4040-web-service-for-2012.html "40/40 Web Service for 2012 &bull; DJS Consulting Tech Blog"

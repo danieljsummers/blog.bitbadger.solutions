@@ -26,6 +26,6 @@ So how do you do it? It's actually pretty easy, using the [Code Markup][] WordPr
 A big "atta boy" to [Bennet McElwee][] for a fantastic plugin!
 
 
-[TinyMCE]:        //tinymce.moxiecode.com "TinyMCE"
-[Code Markup]:    //www.thunderguy.com/semicolon/wordpress/code-markup-wordpress-plugin "Code Markup Plug-in - Semicolon"
-[Bennet McElwee]: //www.thunderguy.com/semicolon/ "Semicolon - by Bennett McElwee"
+[TinyMCE]:        //www.tinymce.com "TinyMCE"
+[Code Markup]:    //thunderguy.com/semicolon/wordpress/code-markup-wordpress-plugin/ "Code Markup Plug-in - Semicolon"
+[Bennet McElwee]: //thunderguy.com/semicolon/ "Semicolon - by Bennett McElwee"

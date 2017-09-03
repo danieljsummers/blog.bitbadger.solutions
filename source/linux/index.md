@@ -12,5 +12,5 @@ We at DJS Consulting love Linux! Below are the resources we provide.
 
 [averatec]: /linux/installing-wbel4-rhel4-on-an-averatec-6200-laptop/
 [xine]: /linux/xine-rpms-for-el-x86_64-architecture/
-[repo]: //hosted.djs-consulting.com/software
+[repo]: //hosted.djs-consulting.com/software/
 [posts]: /category/linux/

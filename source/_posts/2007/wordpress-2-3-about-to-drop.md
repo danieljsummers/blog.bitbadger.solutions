@@ -16,4 +16,4 @@ Version 2.3 of WordPress, the blogging software I use to produce this blog (as w
 There's lots more information on the [WordPress Development Blog][dev] - I won't go into the details here. I'm confident this will be a smooth upgrade. I just wanted to let you know in case some things look strange, I'm on it.
 
 
-[dev]: //wordpress.org/development "Development Blog - WordPress.org"
+[dev]: //wordpress.org/news/ "Development Blog - WordPress.org"
