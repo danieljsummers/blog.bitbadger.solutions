@@ -21,6 +21,6 @@ You'll also need a user interface - as of this release, the most current release
 (To save disk space, only the current release and two [prior releases][pri] will be maintained.)
 
 
-[abt]: /2005/about-the-xine-rpms.html "About the xine RPMs &bull; DJS Consulting Tech Blog"
-[ui]:  /2010/xine-ui-0-99-6-rpm.html
-[pri]: /2009/xine-lib-1-1-16-3-rpm.html
+[abt]: /2005/about-the-xine-rpms.html "About the xine RPMs &bull; The Bit Badger Blog"
+[ui]:  /2010/xine-ui-0-99-6-rpm.html "xine-ui 0.99.6 RPM &bull; The Bit Badger Blog"
+[pri]: /2009/xine-lib-1-1-16-3-rpm.html "xine-lib 1.1.16.3 RPM &bull; The Bit Badger Blog"

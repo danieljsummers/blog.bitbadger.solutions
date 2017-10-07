@@ -27,4 +27,4 @@ Since I have just started using it, I haven't wrung it out, or tested all the op
 
 [Mozilla Sunbird]: //www.mozilla.org/projects/calendar/sunbird/ "Mozilla Sunbird Calendar Project"
 [Lightning]:       //www.mozilla.org/projects/calendar/lightning/ "Lightning Plug-in for Thunderbird"
-[this post]:       /2007/mozilla-now-hosting-lightning-64-bit-plug-in.html "Mozilla Now Hosting Lightning 64-bit Plug-In &bull; DJS Consulting Tech Blog"
+[this post]:       /2007/mozilla-now-hosting-lightning-64-bit-plug-in.html "Mozilla Now Hosting Lightning 64-bit Plug-In &bull; The Bit Badger Blog"

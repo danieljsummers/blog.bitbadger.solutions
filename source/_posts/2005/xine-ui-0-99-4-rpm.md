@@ -16,6 +16,6 @@ To use this, you'll also need xine-lib - as of this release, the most recent rel
 (To save disk space, only the current release and two [prior releases][pri] will be maintained.)
 
 
-[abt]: /2005/about-the-xine-rpms.html "About the xine RPMs &bull; DJS Consulting Tech Blog"
-[lib]: /2005/xine-lib-1-1-0-rpm.html
-[pri]: /2005/xine-ui-0-99-3-rpm.html
+[abt]: /2005/about-the-xine-rpms.html "About the xine RPMs &bull; The Bit Badger Blog"
+[lib]: /2005/xine-lib-1-1-0-rpm.html "xine-lib 1.1.0 RPM &bull; The Bit Badger Blog"
+[pri]: /2005/xine-ui-0-99-3-rpm.html "xine-ui 0.99.3 RPM &bull; The Bit Badger Blog"

@@ -22,13 +22,13 @@ summary: The process we use to regenerate Jekyll sites when a push occurs to a p
 
 As we mentioned in [our last post][v4], we plan to share aspects of how we moved to [Jekyll][]. This is the first of these posts.
 
-# Background
+## Background
 
 With a database-based solution, updating is easy; when the user updates content through the user interface, the new content is served when the page or post is requested. However, with a static site, an "update" is technically any change to the underlying files from which the site is generated. Typically, though, this is marked by source control commit and push to a master repository. [GitHub Pages][ghp], the product for which Jekyll was developed, uses this as a flag to regenerate the site. We weren't using GitHub*, though - we were using [Mercurial][hg] (Hg) for our source code control, with the master repository on a different server than the one from which the site is served.
 
 _\* There were a few reasons we did not wish to host our sites using GitHub, none of which are pertinent to how this works._
 
-# Options
+## Options
 
 With the need to regenerate the site after each site's master repository receives a push, there were a few different options we considered.
 
@@ -40,7 +40,7 @@ The first option has the potential to run afoul of SSH rate limits, plus has the
 
 Eventually, we decided to go with option 3.
 
-# Script All the Things
+## Script All the Things
 
 On the Hg server, in the master repository for each site, we put the following in `.hg/hgrc` _(the following examples are for this site)_:
 
@@ -102,14 +102,14 @@ Finally, each script needs to be run to check for the presence of the semaphore 
 */4 *   *   *   *    /opt/jobs/jekyll/tech-blog.sh > /dev/null
 {% endcodeblock %}
 
-# Conclusion
+## Conclusion
 
 Overall, we're pleased with the results. The inter-server communication is light, only requiring one initiated `ssh` connection from each server, so we won't run afoul of rate limits. With the work being done on the destination server, the amount of time where there are no files in the directory (between the `rm -r $DEST/*` and the time the `cp -r * $DEST` finishes) is very short; it would have been much longer if the directory were being repopulated across the network, or more complex if we added a staging area on the web server. Each piece can be run separately, and if we've committed a post with a future date, we can run the same `touch` command to make that post appear.
 
 Next time, we'll discuss our experiences converting a non-WordPress site.
 
 
-[v4]:     /2017/tech-blog-v4.html "Tech Blog v4 &bull; DJS Consulting Tech Blog"
+[v4]:     /2017/tech-blog-v4.html "Tech Blog v4 &bull; The Bit Badger Blog"
 [Jekyll]: //jekyllrb.com "Jekyll"
 [ghp]:    //pages.github.com "GitHub Pages"
 [hg]:     //www.mercurial-scm.org "Mercurial (Hg)"

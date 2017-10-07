@@ -3,11 +3,11 @@ layout: page
 title: Linux Resources
 date: 2005-09-01 00:00:00
 ---
-We at DJS Consulting love Linux! Below are the resources we provide.
+We at Bit Badger Solutions love Linux! Below are the resources we provide.
 
 * [Installing Linux on an Averatec 6200 Laptop][averatec]
 * [xine RPMs for the x86_64 EL Architecture][xine]
-* [DJS Consulting Software Repository][repo]
+* [Bit Badger Solutions Software Repository][repo]
 * [Linux posts][posts] on this blog
 
 [averatec]: /linux/installing-wbel4-rhel4-on-an-averatec-6200-laptop/

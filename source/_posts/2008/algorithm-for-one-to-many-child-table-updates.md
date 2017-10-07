@@ -134,5 +134,5 @@ foreach($_POST["area"] as $iArea) {
 I think you'll agree that this is much better than spinning through a loop, doing a count on each ID to see if it exists, then either doing an update or an insert based on the count.  And, while the implementation here is PHP, it could easily be implemented in any language that supports arrays and database access.
 
 
-[nsx]: //djs-consulting.com/applications/nsx "Not So Extreme Makeover: Community Edition &bull; DJS Consulting"
+[nsx]: //bitbadger.solutions/solutions/nsx "Not So Extreme Makeover: Community Edition &bull; Bit Badger Solutions"
 [pdo]: //us.php.net/pdo "PHP Data Objects (PDO)"

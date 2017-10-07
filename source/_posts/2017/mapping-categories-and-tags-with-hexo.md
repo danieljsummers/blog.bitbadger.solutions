@@ -31,6 +31,6 @@ As you can see by hovering over the links in the sidebar, "Programming > .NET > 
 
 [Jekyll]: //jekyllrb.com "Jekyll"
 [Hexo]: //hexo.io "Hexo"
-[gh]: //github.com/danieljsummers/techblog.djs-consulting.com "DJS Consulting Tech Blog &bull; GitHub"
+[gh]: //github.com/danieljsummers/blog.bitbadger.solutions "The Bit Badger Blog &bull; GitHub"
 [Gitter]: //gitter.im "Gitter"
 [iss]: //github.com/hexojs/hexo/issues/908#issuecomment-62913729 "Hexo category_map Issue"

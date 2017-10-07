@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The DJS Consulting Linux Software Repository
+title: The Bit Badger Solutions Linux Software Repository
 author: Daniel
 date: 2008-06-24 21:05:18
 categories:
@@ -25,7 +25,7 @@ We have created a software repository, where users can browse files that may be 
 Enjoy!
 
 
-[repo]:      //hosted.djs-consulting.com/software "DJS Consulting Linux Software Repository"
+[repo]:      //hosted.djs-consulting.com/software "Bit Badger Solutions Linux Software Repository"
 [/sled]:     //hosted.djs-consulting.com/software/sled "SUSE Linux Enterprise Desktop Add-On Images"
 [/opensuse]: //hosted.djs-consulting.com/software/opensuse "openSUSE Add-On Images"
 [pcc]:       //www.pcc-services.com "PCC Services"

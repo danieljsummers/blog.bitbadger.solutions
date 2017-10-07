@@ -21,8 +21,8 @@ To use this, you'll also need xine-lib - as of this release, the most recent rel
 (To save disk space, only the current release and two prior releases will be maintained.)
 
 
-[abt]:         /2005/about-the-xine-rpms.html "About the xine RPMs &bull; DJS Consulting Tech Blog"
+[abt]:         /2005/about-the-xine-rpms.html "About the xine RPMs &bull; The Bit Badger Blog"
 [gxine]:       //hosted.djs-consulting.com/software/xine/gxine/gxine-0.5.908-2.x86_64.rpm
 [gxineplugin]: //hosted.djs-consulting.com/software/xine/gxine/gxineplugin-0.5.908-2.x86_64.rpm
-[lib]:         /2014/xine-lib-1-2-6-rpm.html
-[lib1]:        /2012/xine-lib-1-1-21-rpm.html
+[lib]:         /2014/xine-lib-1-2-6-rpm.html "xine-lib 1.2.6 RPM &bull; The Bit Badger Blog"
+[lib1]:        /2012/xine-lib-1-1-21-rpm.html "xine-lib 1.1.21 RPM &bull; The Bit Badger Blog"

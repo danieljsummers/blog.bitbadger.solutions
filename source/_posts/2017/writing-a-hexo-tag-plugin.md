@@ -2,6 +2,7 @@
 layout: post
 title: Writing a Hexo Tag Plugin
 date: 2017-09-09 23:45:17
+author: Daniel
 categories:
 - [ Programming, JavaScript, Hexo ]
 tags:

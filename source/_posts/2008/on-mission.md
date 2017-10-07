@@ -17,5 +17,5 @@ Sorry for the lack of new content (although I did download and build the latest 
 Happy Easter - see you in April!
 
 
-[nsx]: //djs-consulting.com/applications/nsx "Not So Extreme Makeover: Community Edition &bull; DJS Consulting"
+[nsx]: //bitbadger.solutions/solutions/nsx "Not So Extreme Makeover: Community Edition &bull; Bit Badger Solutions"
 [pg]:  //www.postgresql.org

@@ -21,6 +21,6 @@ From [August 2011][v3] until today, this site has been running under WordPress. 
 There will be more to come on Jekyll; there are at least two posts to be written, one on automating the build process and another on the migration from WordPress. Until then, though, there are redirects that ensure the RSS feeds for both the main blog and the xine RPMs require no changes, and the category pages have redirects as well. If something does not look right, let us know via either of the social media accounts linked above.
 
 
-[v3]:     /2011/tech-blog-3-0.html "Tech Blog 3.0 &bull; DJS Consulting Tech Blog"
+[v3]:     /2011/tech-blog-3-0.html "Tech Blog 3.0 &bull; The Bit Badger Blog"
 [Jekyll]: //jekyllrb.com "Jekyll"
 [nginx]:  //nginx.com "nginx"

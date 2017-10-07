@@ -31,4 +31,4 @@ I haven't tested it with gcj, but using Sun's Java 6 update 7 from the Ubuntu re
 [sd]:    //www.oracle.com/technology/products/database/sql_developer/index.html "Oracle SQL Developer &bull; Oracle"
 [Toad]:  //www.toadsoft.com
 [alien]: //kitenet.net/~joey/code/alien/
-[deb]:   //djs-consulting.com/linux/software/sqldeveloper/sqldeveloper_1.5.54.40-2_all.deb "SQL Developer 1.5.1 Debian Package &bull; DJS Consulting Linux Software Repository"
+[deb]:   //djs-consulting.com/linux/software/sqldeveloper/sqldeveloper_1.5.54.40-2_all.deb "SQL Developer 1.5.1 Debian Package &bull; Bit Badger Solutions Linux Software Repository"

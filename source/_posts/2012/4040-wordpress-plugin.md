@@ -17,4 +17,4 @@ Version 2012.0 is the version that's up there now. The Spanish translations of t
 
 
 [pi]: //wordpress.org/plugins/4040-prayer-vigil/ "40/40 Prayer Vigil &bull; WordPress Plugin Directory"
-[post]: /2012/4040-web-service-for-2012.html "40/40 Web Service for 2012 &bull; DJS Consulting Tech Blog"
+[post]: /2012/4040-web-service-for-2012.html "40/40 Web Service for 2012 &bull; The Bit Badger Blog"

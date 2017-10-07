@@ -41,6 +41,6 @@ Finally, with this update, the blog has received its first new theme. It's a cle
 So, there you have it. Enjoy!
 
 
-[Tech Blog 2.0]: /2010/tech-blog-2-0.html "Tech Blog 2.0 &bull; DJS Consulting Tech Blog"
+[Tech Blog 2.0]: /2010/tech-blog-2-0.html "Tech Blog 2.0 &bull; The Bit Badger Blog"
 [WordPress]:     //wordpress.org "WordPress"
 [BlogEngine]:    http://dnbe.net/docs/ "BlogEngine.NET"

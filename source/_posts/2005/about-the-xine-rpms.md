@@ -56,4 +56,4 @@ _These RPMs were built on White Box Enterprise Linux 4 running kernel version 2.
 
 
 [www.xine-project.org]: //www.xine-project.org "xine Home"
-[RSS feed]:             /category/hosted-64-bit-software/xine-rpms/feed "Xine RPMs (RSS) &bull; DJS Consulting Tech Blog"
+[RSS feed]:             /category/hosted-64-bit-software/xine-rpms/feed "Xine RPMs (RSS) &bull; The Bit Badger Blog"

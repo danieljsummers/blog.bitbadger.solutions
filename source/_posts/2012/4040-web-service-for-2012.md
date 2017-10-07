@@ -32,7 +32,7 @@ The REST API start page is <del>at this URL</del> no longer active. The prayer g
 There will be a WordPress plug-in shortly that will utilize this to display the current day or hour's prayer guide directly on your blog; we'll make another post when that is available. Also, starting September 26th (the first day of the vigil), it will be available for display with no login required at the Hoffmantown Prayer and [PrayerTracker][pt] websites. Developers, the service is available now; if you want to write code to utilize the service, you've got 3 months to make it work!
 
 
-[post]: /2010/4040-web-service.html "40/40 Web Service &bull; DJS Consulting Tech Blog"
+[post]: /2010/4040-web-service.html "40/40 Web Service &bull; The Bit Badger Blog"
 [4040]: //4040prayer.wordpress.com "40/40 Prayer Vigil"
 [erlc]: http://erlc.com "Ethics and Religious Liberty Commission"
 [pt]:   //prayer.djs-consulting.com "PrayerTracker"

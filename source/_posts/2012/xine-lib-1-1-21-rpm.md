@@ -21,9 +21,9 @@ You'll also need a user interface - as of this release, the most current release
 (To save disk space, only the current release and two [prior releases][pri] will be maintained.)
 
 
-[abt]:          /2005/about-the-xine-rpms.html "About the xine RPMs &bull; DJS Consulting Tech Blog"
+[abt]:          /2005/about-the-xine-rpms.html "About the xine RPMs &bull; The Bit Badger Blog"
 [xine-lib]:     //hosted.djs-consulting.com/software/xine/xine-lib/libxine1-1.1.21-2.x86_64.rpm
 [xine-lib-dev]: //hosted.djs-consulting.com/software/xine/xine-lib/libxine-dev-1.1.21-2.x86_64.rpm
 [xine-lib-doc]: //hosted.djs-consulting.com/software/xine/xine-lib/libxine1-doc-1.1.21-2.noarch.rpm
-[ui]:           /2012/xine-ui-0-99-7-rpm.html
-[pri]:          /2012/xine-lib-1-1-20-1-rpm.html
+[ui]:           /2012/xine-ui-0-99-7-rpm.html "xine-ui 0.99.7 RPM &bull; The Bit Badger Blog"
+[pri]:          /2012/xine-lib-1-1-20-1-rpm.html "xine-lib 1.1.20.1 RPM &bull; The Bit Badger Blog"

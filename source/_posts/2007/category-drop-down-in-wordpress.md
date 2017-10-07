@@ -26,5 +26,5 @@ This works for both "pretty" and standard links, as it uses the template tag [ge
 [template]:  //codex.wordpress.org/Template_Tags "Template Tags - WordPress Codex"
 [cat]:       //codex.wordpress.org/Template_Tags/wp_dropdown_categories "wp_dropdown_categories - WordPress Codex"
 [personal]:  //daniel.summershome.org "Daniel J. Summers"
-[this post]: /2007/posting-source-code-in-wordpress-take-2.html "Posting Source Code in WordPress, Take 2 &bull; DJS Consulting Tech Blog"
+[this post]: /2007/posting-source-code-in-wordpress-take-2.html "Posting Source Code in WordPress, Take 2 &bull; The Bit Badger Blog"
 [link]:      //codex.wordpress.org/Function_Reference/get_category_link "get_category_link - WordPress Codex"

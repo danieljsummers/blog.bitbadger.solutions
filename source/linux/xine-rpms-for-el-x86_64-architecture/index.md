@@ -8,6 +8,6 @@ The xine RPMs are now distributed through this blog. Information about the RPMs 
 You can also [view the list of available RPMs][list] or simply [browse the available xine files][browse].
 
 
-[abt]: /2005/about-the-xine-rpms.html "About the xine RPMs &bull; DJS Consulting Tech Blog"
-[list]: /category/hosted-64-bit-software/xine-rpms/ "&ldquo;xine RPMs&rdquo; Category &bull; DJS Consulting Tech Blog"
-[browse]: //hosted.djs-consulting.com/software/xine "xine RPMs &bull; DJS Consulting Software Repository"
+[abt]: /2005/about-the-xine-rpms.html "About the xine RPMs &bull; The Bit Badger Blog"
+[list]: /category/hosted-64-bit-software/xine-rpms/ "&ldquo;xine RPMs&rdquo; Category &bull; The Bit Badger Blog"
+[browse]: //hosted.djs-consulting.com/software/xine "xine RPMs &bull; Bit Badger Solutions Software Repository"
