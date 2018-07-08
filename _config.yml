@@ -58,9 +58,11 @@ category_map:
   C++: c-plus-plus
   C#: c-sharp
   .NET: dot-net
+  F#: f-sharp
 tag_map:
   c#: c-sharp
   .net: dot-net
+  f#: f-sharp
 
 category_generator:
   per_page: 6
