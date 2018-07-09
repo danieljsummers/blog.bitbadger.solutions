@@ -10,6 +10,8 @@ tags:
 - ef core
 - entity framework core
 ---
+**UPDATE:** The code described below is now available as a [NuGet package][ng].
+
 The 2.1 release of [Entity Framework Core][efcore] brought the ability to do [value conversions][vc]. This is implemented through an abstract class, `ValueConverter`, which you can implement to convert a data type. They also provided [several built-in converters][bic] that you don't have to write, such as storing `enum`s as strings. To use a value converter, you provide a new instance of it and attach it to a property in your model's `OnModelCreating` event.
 
 F# provides an `Option<'T>` type as a way to represent a value that may or may not be present. There are many benefits to defining optional values as `'T option` rather than checking for null; you can [read all about it][opt] if you'd like.
@@ -77,3 +79,4 @@ _(Credits: Many thanks to Jiří Činčura for the [excellent value conversion b
 [mu]: https://twitter.com/efmagicunicorns
 [vcblog]: https://www.tabsoverspaces.com/233708-using-value-converter-for-custom-encryption-of-field-on-entity-framework-core-2-1
 [so]: https://stackoverflow.com/a/23146624
+[ng]: https://www.nuget.org/packages/FSharp.EFCore.OptionConverter/
