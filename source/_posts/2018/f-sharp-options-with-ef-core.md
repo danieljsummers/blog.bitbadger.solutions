@@ -25,15 +25,15 @@ module Conversion =
   open System
   open System.Linq.Expressions
 
-  let asLinqExpr<'T> = (LeafExpressionConverter.QuotationToExpression >> unbox<Expression<Func<'T, 'T option>>>)
-
   let toOption<'T> =
     <@ Func<'T, 'T option>(fun (x : 'T) -> match box x with null -> None | _ -> Some x) @>
-    |> asLinqExpr
+    |> LeafExpressionConverter.QuotationToExpression
+    |> unbox<Expression<Func<'T, 'T option>>>
   
   let fromOption<'T> =
     <@ Func<'T option, 'T>(fun (x : 'T option) -> match x with Some y -> y | None -> Unchecked.defaultof<'T>) @>
-    |> asLinqExpr
+    |> LeafExpressionConverter.QuotationToExpression
+    |> unbox<Expression<Func<'T option, 'T>>>
 
 type OptionConverter<'T> () =
   inherit ValueConverter<'T option, 'T> (Conversion.fromOption, Conversion.toOption)
