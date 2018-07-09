@@ -65,7 +65,7 @@ Now that we have our option converter, let's hook it into our model. In my proje
 
 This line of code finds the type within the model, the property within the type, and provides the new instance of our option converter to it. In this entity, a `None` here indicates that the member uses the group's default e-mail format; `Some` would indicate that they've specified which format they prefer.
 
-That's all there is to it! Define the coverter once, and plug it in to all the optional fields; now we have nullable fields translated to options by EF Core. ["Magic unicorn,"][mu] indeed!
+That's all there is to it! Define the converter once, and plug it in to all the optional fields; now we have nullable fields translated to options by EF Core. ["Magic unicorn,"][mu] indeed!
 
 _(Credits: Many thanks to Jiří Činčura for the [excellent value conversion blog post][vcblog] and Tomas Petricek for his [Stack Overflow answer on converting quotation expressions to Linq expressions][so].)_
 
