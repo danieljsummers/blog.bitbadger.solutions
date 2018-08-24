@@ -26,7 +26,7 @@ tags:
 - suave
 - vue
 ---
-Recently, we released version 1.0 of myPrayerJournal, a minimalistic prayer journaling application. This series aims to provide a tour of the code, with several stops along the way:
+Recently, we released version 1.0 of [myPrayerJournal][], a minimalistic prayer journaling application. This series aims to provide a tour of the code, with several stops along the way:
 
 - **Part 0: Introduction** _(this post)_
 - **Part 1: The Front End** - Vue components and routing
@@ -40,7 +40,7 @@ _(these will be linked once each post has been published)_
 
 From a technical perspective, this application was going to be a learning experience. We knew we wanted to use a Single Page Application (SPA) framework with an API; we'd built APIs before, but had yet to build a SPA. For front-end frameworks, we started with [Angular][], went through [Aurelia][] and [Elm][], then decided on [Vue][]. For the back-end API, we started with [Suave][], then went live on [Node.js][] with [Koa][]; later, we moved it to [Go][], and after .NET Core 2.1 was released, landed on [Giraffe][]. The "learning experience" part was a success; through all these attempts, we utilized 5 different languages and 3 different database access techniques.
 
-To understand the requirements, a short explanation of the process will help. "Prayer journaling" is a discipline where a person will write down the things for which they are praying; this provides a defined list to help guide their prayer, and helps them not forget things. Then, as the situation changes, they can record updates, through to the resolution of the situation (also called the request being "answered"). This discipline not only helps to focus efforts, it also provides a record of requests and answers. Although people have successfully used a notebook, or somthing similar, for a long time, that approach does have some downsides:
+To understand the requirements, a short explanation of the process will help. "Prayer journaling" is a discipline where a person will write down the things for which they are praying; this provides a defined list to help guide their prayer, and helps them not forget things. Then, as the situation changes, they can record updates, through to the resolution of the situation (also called the request being "answered"). This discipline not only helps to focus efforts, it also provides a record of requests and answers. Although people have successfully used a notebook, or something similar, for a long time, that approach does have some downsides:
 - For long term requests, you can run out of room for updates.
 - A physical journal can only be in one place at one time.
 - Answered requests coexist with unanswered requests, so you have to flip pages past them.
@@ -57,6 +57,7 @@ Looking to address some of those, the initial requirements started as the first 
 Armed with these requirements, we will pick up next time with a look at the Vue front end.
 
 
+[myPrayerJournal]: https://github.com/bit-badger/myPrayerJournal/tree/1.0.0
 [Angular]: https://angular.io
 [Aurelia]: https://aurelia.io
 [Elm]: http://elm-lang.org
