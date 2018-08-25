@@ -29,7 +29,7 @@ tags:
 Recently, we released version 1.0 of [myPrayerJournal][], a minimalistic prayer journaling application. This series aims to provide a tour of the code, with several stops along the way:
 
 - **Part 0: Introduction** _(this post)_
-- **Part 1: The Front End** - Vue components and routing
+- **[Part 1: The Front End][part1]** - Vue components and routing
 - **Part 2: State in the Browser** - Vuex and getting information from an API
 - **Part 3: The API** - Giraffe and JSON web endpoints
 - **Part 4: Authentication** - Auth0, using information in both app and API
@@ -58,6 +58,7 @@ Armed with these requirements, we will pick up next time with a look at the Vue 
 
 
 [myPrayerJournal]: https://github.com/bit-badger/myPrayerJournal/tree/1.0.0
+[part1]: /2018/a-tour-of-myprayerjournal/the-front-end.html "A Tour of myPrayerJournal: The Front End | The Bit Badger Blog"
 [Angular]: https://angular.io
 [Aurelia]: https://aurelia.io
 [Elm]: http://elm-lang.org

@@ -1,15 +1,17 @@
 ---
 layout: post
 title: "A Tour of myPrayerJournal: The Front End"
-date: 2018-08-25 12:15:00
+date: 2018-08-25 08:20:00
 author: Daniel
 categories:
 - [ Programming, JavaScript, Vue ]
 - [ Series, A Tour of myPrayerJournal ]
 tags:
 - components
+- events
 - javascript
 - layout
+- parent/child
 - pug
 - router
 - routing
@@ -52,20 +54,30 @@ When software developers hear "components," they generally think of reusable pie
 
 However, that does not mean that none of our components will be reused. `RequestCard`, which we referenced above, is used in a loop in the `Journal` component ([mpj:Journal.vue][Journal.vue]); it is reused for every request in the journal. In fact, it is reused even for requests that should not be shown; behavior associated with the `shouldDisplay` property makes the component display nothing if a request is snoozed or is in a recurrence period. Instead of the journal being responsible for answering the question "Should I display this request?", the request display answers the question "Should I render anything?". This may seem different from typical server-side page generation logic, but it will make more sense once we discuss state management (next post).
 
-This is also a good time to mention component hierarchies; in the current structure, `RequestCard` will always have `Journal` as a parent, and `Journal` will always have `App` as its parent. This means that `RequestCard` could, technically, get its toast implementation via `this.$parent.$parent.toast`; however, this type of coupling is very fragile<a href="#note-2"><sup>2</sup></a>. Requiring `toast` as a parameter to `RequestCard` means that, wherever `RequestCard` is implemented, if it's given a `toast` parameter, it can display toasts for the actions that would occur on that request. `Journal`, as a direct descendant from `App`, can get its reference to the toast instance from its parent, then pass it along to child components; this only gives us one layer of dependency.
-
 Looking at some other reusable (and reused) components, the page title component ([mpj:PageTitle.vue][PageTitle.vue]) changes the title on the HTML document, and optionally also displays a title at the top of the page. The "date from now" component ([mpj:DateFromNow.vue][DateFromNow.vue]) is the most frequently reused component. Every time it is called, it generates a relative date, with the actual date/time as a tool tip; it also sets a timeout to update this every 10 seconds. This keeps the relative time in sync, even if the router destination stays active for a long time.
 
 Finally, it's also worth mentioning that SFCs do not have to have all three sections defined. Thanks to conventions, and depending on your intended use, none of the sections are required. The "date from now" component only has a `script` section, while the privacy policy component only has a `template` section.
+
+## Component Interaction
+
+Before we dive into the specifics of events, let's look again at `Journal` and `RequestCard`. In the current structure, `RequestCard` will always have `Journal` as a parent, and `Journal` will always have `App` as its parent. This means that `RequestCard` could, technically, get its toast implementation via `this.$parent.$parent.toast`; however, this type of coupling is very fragile<a href="#note-2"><sup>2</sup></a>. Requiring `toast` as a parameter to `RequestCard` means that, wherever `RequestCard` is implemented, if it's given a `toast` parameter, it can display toasts for the actions that would occur on that request. `Journal`, as a direct descendant from `App`, can get its reference to the toast instance from its parent, then pass it along to child components; this only gives us one layer of dependency.
+
+In Vue, generally speaking, parent components communicate with child components via props (which we see with passing the toast instance to `RequestCard`); child components communicate with parents via events. The names of events are not prescribed; the developer comes up with them, and they can be as terse or descriptive as desired. Events can optionally have additional data that goes with it. The Vue instance supports subscribing to event notifications, as well as emitting events. We can also create a separate Vue instance to use as an event bus if we like. myPrayerJournal uses both of these techniques in different places.
+
+As an example of the first, let's look at the interaction between `ActiveRequests` ([mpj:ActiveRequests.vue][ActiveRequests.vue]) and `RequestListItem` ([mpj:RequestListItem.vue][RLI.vue]). On lines 41 and 42 of `ActiveRequests` (the parent), it subscribes to the `requestUnsnoozed` and `requestNowShown` events. Both these events trigger the page to refresh its underlying data from the journal. `RequestListItem`, lines 67 and 79, both use `this.$parent.$emit` to fire off these events. This model allows the child to emit events at will, and if the parent does not subscribe, there are no errors. For example, `AnswerdRequests` ([mpj:AnsweredRequests.vue][AnsweredRequests.vue]) does not subscribe to either of these events. (`RequestListItem` will not show the buttons that cause those events to be emitted, but even if it did, emitting the event would not cause an error.)
+
+An example of the second technique, a dedicated parent/child event bus, can be seen back in `Journal` and `RequestCard`. Adding notes and snoozing requests are modal windows<a href="#note-3"><sup>3</sup></a>. Rather than specifying an instance of these per request, which could grow rather quickly, `Journal` only instantiates one instance of each modal (lines 19-22). It also creates the dedicated Vue instance (line 46), and passes it to the modal windows and each `RequestCard` instance (lines 15, 20, and 22). Via this event bus, any `RequestCard` instance can trigger the notes or snooze modals to be shown. Look through `NotesEdit` ([mpj:NotesEdit.vue][NotesEdit.vue]) to see how the child listens for the event, and also how it resets its state (the `closeDialog()` method) so it will be fresh for the next request.
 
 <p>&nbsp;</p>
 
 That wraps up our tour of Vue routes and components; next time, we'll take a look at Vuex, and how it helps us maintain state in the browser.
 
 ---
-<a name="note-1"><sup>1</sup></a> _(That's my summary; I'm sure they've got much more eloquent ways to describe it.)_
+<a name="note-1"><sup>1</sup></a> _That's my summary; I'm sure they've got much more eloquent ways to describe it._
 
 <a name="note-2"><sup>2</sup></a> _...and kinda ugly, but maybe that's just me._
+
+<a name="note-3"><sup>3</sup></a> _Up until nearly the end of development, editing requests was a modal as well. Adding recurrence made it too busy, so it got to be its own page._
 
 
 [intro]: /2018/a-tour-of-myprayerjournal/introduction.html "A Tour of myPrayerJournal: Introduction | The Bit Badger Blog"
@@ -81,3 +93,7 @@ That wraps up our tour of Vue routes and components; next time, we'll take a loo
 [Journal.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/Journal.vue "app/src/components/Journal.vue | myPrayerJournal | GitHub"
 [PageTitle.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/common/PageTitle.vue "app/src/components/common/PageTitle.vue | myPrayerJournal | GitHub"
 [DateFromNow.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/common/DateFromNow.vue "app/src/components/common/DateFromNow.vue | myPrayerJournal | GitHub"
+[ActiveRequests.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/request/ActiveRequests.vue "app/src/components/request/ActiveRequests.vue | myPrayerJournal | GitHub"
+[RLI.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/request/RequestListItem.vue "app/src/components/request/RequestListItem.vue | myPrayerJournal | GitHub"
+[AnsweredRequests.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/request/AnsweredRequests.vue "app/src/components/request/AnsweredRequests.vue | myPrayerJournal | GitHub"
+[NotesEdit.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/request/NotesEdit.vue "app/src/components/request/NotesEdit.vue | myPrayerJournal | GitHub"
