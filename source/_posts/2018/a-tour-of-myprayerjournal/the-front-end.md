@@ -70,7 +70,7 @@ An example of the second technique, a dedicated parent/child event bus, can be s
 
 <p>&nbsp;</p>
 
-That wraps up our tour of Vue routes and components; next time, we'll take a look at Vuex, and how it helps us maintain state in the browser.
+That wraps up our tour of Vue routes and components; next time, we'll take a look at Vuex, and how it helps us maintain [state in the browser][state].
 
 ---
 <a name="note-1"><sup>1</sup></a> _That's my summary; I'm sure they've got much more eloquent ways to describe it._
@@ -97,3 +97,4 @@ That wraps up our tour of Vue routes and components; next time, we'll take a loo
 [RLI.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/request/RequestListItem.vue "app/src/components/request/RequestListItem.vue | myPrayerJournal | GitHub"
 [AnsweredRequests.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/request/AnsweredRequests.vue "app/src/components/request/AnsweredRequests.vue | myPrayerJournal | GitHub"
 [NotesEdit.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/request/NotesEdit.vue "app/src/components/request/NotesEdit.vue | myPrayerJournal | GitHub"
+[state]: /2018/a-tour-of-myprayerjournal/state-in-the-browser.html "A Tour of myPrayerJournal: State in the Browser | The Bit Badger Blog"

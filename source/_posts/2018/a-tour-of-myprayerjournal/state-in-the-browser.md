@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Tour of myPrayerJournal: State in the Browser"
-date: 2018-08-26 12:15:00
+date: 2018-08-26 07:30:00
 author: Daniel
 categories:
 - [ Programming, JavaScript, Vue ]
