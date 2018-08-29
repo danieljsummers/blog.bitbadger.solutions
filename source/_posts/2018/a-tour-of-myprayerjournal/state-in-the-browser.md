@@ -60,7 +60,7 @@ This is one of the things that cemented the decision to use Vue for the front en
 
 <p>&nbsp;</p>
 
-We've now toured our stateful front end; next time, we'll take a look at the API we use to get data into it.
+We've now toured our stateful front end; next time, we'll take a look at [the API we use to get data into it][api].
 
 ---
 <a name="note-1"><sup>1</sup></a> _Pun not originally intended, but it is now!_
@@ -76,3 +76,4 @@ We've now toured our stateful front end; next time, we'll take a look at the API
 [RequestCard.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/request/RequestCard.vue "app/src/components/request/RequestCard.vue | myPrayerJournal | GitHub"
 [part1]: /2018/a-tour-of-myprayerjournal/the-front-end.html#Components "Components | A Tour of myPrayerJournal: The Front End | The Bit Badger Blog"
 [Navigation.vue]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/app/src/components/common/Navigation.vue "app/src/components/common/Navigation.vue | myPrayerJournal | GitHub"
+[api]: /2018/a-tour-of-myprayerjournal/the-api.html "A Tour of myPrayerJournal: The API | The Bit Badger Blog"

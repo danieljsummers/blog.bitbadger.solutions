@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Tour of myPrayerJournal: The API"
-date: 2018-08-27 12:15:00
+date: 2018-08-29 09:37:00
 author: Daniel
 categories:
 - [ Programming, .NET, F# ]
@@ -32,7 +32,7 @@ _NOTES:_
 - _This is post 4 in a series; see [the introduction][intro] for all of them, and the requirements for which this software was built._
 - _Links that start with the text "mpj:" are links to the 1.0.0 tag (1.0 release) of myPrayerJournal, unless otherwise noted._
 
-Now that we have a wonderful, shiny, reactive front end, we need to be able to get some data into it. We'll be communicating via <abbr title="JavaScript Object Notation">JSON</abbr> between the app and the server. In this post, we'll also attempt to explain some about the F# language features used as part of the API.
+Now that we have a wonderful, shiny, [reactive][] [front end][], we need to be able to get some data into it. We'll be communicating via <abbr title="JavaScript Object Notation">JSON</abbr> between the app and the server. In this post, we'll also attempt to explain some about the F# language features used as part of the API.
 
 ## The Data
 
@@ -42,15 +42,15 @@ We apply no special JSON transformations, so the fields in these record types ar
 
 ## The URLs
 
-To set the API apart from the rest of the URLs, they all start with `/api`. Request URLs generally follow the form `/request/[id]/[action]`, and there is a separate URL for the journal. Line 54 in `Program.fs` ([mpj:Program.fs][Program.fs]) has the definition of the routes. We used [Giraffe][]'s [Token Router][TR] instead of the traditional one, as we didn't need to support any URL schemes it doesn't. The result really looks like a nice, clean "table of contents" for the routes support by the API. _(While we tried to follow <abbr title="Representational State Transfer">REST</abbr> principles in large part, the REST purists would probably say that it's not quite RESTful enough to claim the name. But, hey, we do use `PATCH`, so maybe we'll get partial credit.)_
+To set the API apart from the rest of the URLs, they all start with `/api/`. Request URLs generally follow the form `request/[id]/[action]`, and there is a separate URL for the journal. Line 54 in `Program.fs` ([mpj:Program.fs][Program.fs]) has the definition of the routes. We used [Giraffe][]'s [Token Router][TR] instead of the traditional one, as we didn't need to support any URL schemes it doesn't. The result really looks like a nice, clean "table of contents" for the routes support by the API.<a href="#note-1"><sup>1</sup></a>
 
 We aren't done with routes just yet, though. Let's take a look at that `notFound` handler ([mpj:Handlers.fs][Handlers.fs]); it's on line 27. Since we're serving a <abbr title="Single Page Application">SPA</abbr>, we need to return `index.html`, the entry point of the SPA, for URLs that belong to it. Picture a user sitting at `https://prayerjournal.me/journal` and pressing "Refresh;" we don't want to return a 404! Since the app has a finite set of URL prefixes, we'll check to see if one of those is the URL. If it is, we send the Vue app; if not, we send a 404 response. This way, we can return true 404 responses for the inevitable hacking attempts we'll receive (pro tip, hackers - `/wp-admin/wp-upload.php` does not exist).
 
 ## Defining the Handlers
 
-Giraffe uses the term "handler" to define a function that handles a request. Handlers have the signature `HttpFunc -> HttpContext -> Task<HttpContext option>` (aliased as `HttpHandler`), and can be composed via the `>=>` ("fish") operator. The `option` part in the signature is the key in composing handler functions. The `>=>` operator creates a pipeline that sends the output of one function into the input of another; however, if a function fails to return a `Some` option for the `HttpContext` parameter, it short-circuits the remaining logic.<a href="#note-1"><sup>1</sup></a>
+Giraffe uses the term "handler" to define a function that handles a request. Handlers have the signature `HttpFunc -> HttpContext -> Task<HttpContext option>` (aliased as `HttpHandler`), and can be composed via the `>=>` ("fish") operator. The `option` part in the signature is the key in composing handler functions. The `>=>` operator creates a pipeline that sends the output of one function into the input of another; however, if a function fails to return a `Some` option for the `HttpContext` parameter, it short-circuits the remaining logic.<a href="#note-2"><sup>2</sup></a>
 
-The biggest use of that composition in myPrayerJournal is determining if a user is logged in or not. Authorization is also getting its own post, so we'll just focus on the yes/no answer here. The `authorized` handler (line 71) looks for the presence of a user. If it's there, it returns `next ctx`, where `next` is the next `HttpFunc` and `ctx` is the `HttpContext` it received; this results in a `Task<HttpContext option>` which continues to process, hopefully following the happy path and eventually returning `Some`. If the user is not there, though, it returns the `notAuthorized` handler, also passing `next` and `ctx`; however, if we look up to line 67 and the definition of the `notAuthorized` handler, we see that it ignores both `next` and `ctx`, and returns `None`. However, notice that this handler has some fish composition in it; `setStatusCode` returns `Some` - it has succeeded - but we short-circuit the pipeline immediately thereafter.
+The biggest use of that composition in myPrayerJournal is determining if a user is logged in or not. Authorization is also getting its own post, so we'll just focus on the yes/no answer here. The `authorized` handler (line 71) looks for the presence of a user. If it's there, it returns `next ctx`, where `next` is the next `HttpFunc` and `ctx` is the `HttpContext` it received; this results in a `Task<HttpContext option>` which continues to process, hopefully following the happy path and eventually returning `Some`. If the user is not there, though, it returns the `notAuthorized` handler, also passing `next` and `ctx`; however, if we look up to line 67 and the definition of the `notAuthorized` handler, we see that it ignores both `next` and `ctx`, and returns `None`. However, notice that this handler has some fish composition in it; `setStatusCode` returns `Some` (it has succeeded) but we short-circuit the pipeline immediately thereafter.
 
 We can see this in use in the handler for the `/api/journal` endpoint, starting on line 137. Both `authorize` and the inline function below it have the `HttpHandler` signature, so we can compose them with the `>=>` operator. If a user is signed in, they get a journal; if not, they get a 403.
 
@@ -90,10 +90,14 @@ That concludes our tour of the API for now, though we'll be looking at it again 
 
 ---
 
-<a name="note-1"><sup>1</sup></a> _Scott Wlaschin has a great post entitled ["Railway Oriented Programming"][ROP] that explains this concept in general, and [the fish operator][ROP-fish] specifically. Translating his definition to Giraffe's handlers, the first function is `switch1`, the `next` parameter is `switch2`, and the `HttpContext` is the `x` parameter; instead of `Success` and `Failure`, the return type utilizes the either/or nature of an option being `Some` or `None`. If you want to understand what makes F# such a great programming model, you'll spend more time on his site than on The Bit Badger Blog._
+<a name="note-1"><sup>1</sup></a>  _While we tried to follow <abbr title="Representational State Transfer">REST</abbr> principles in large part, the REST purists would probably say that it's not quite RESTful enough to claim the name. But, hey, we do use `PATCH`, so maybe we'll get partial credit..._
+
+<a name="note-2"><sup>2</sup></a> _Scott Wlaschin has a great post entitled ["Railway Oriented Programming"][ROP] that explains this concept in general, and [the fish operator][ROP-fish] specifically. Translating his definition to Giraffe's handlers, the first function is `switch1`, the `next` parameter is `switch2`, and the `HttpContext` is the `x` parameter; instead of `Success` and `Failure`, the return type utilizes the either/or nature of an option being `Some` or `None`. If you want to understand what makes F# such a great programming model, you'll spend more time on his site than on The Bit Badger Blog._
 
 
 [intro]: /2018/a-tour-of-myprayerjournal/introduction.html "A Tour of myPrayerJournal: Introduction | The Bit Badger Blog"
+[reactive]: /2018/a-tour-of-myprayerjournal/state-in-the-browser.html "A Tour of myPrayerJournal: State in the Browser | The Bit Badger Blog"
+[front end]: /2018/a-tour-of-myprayerjournal/the-front-end.html "A Tour of myPrayerJournal: The Front End | The Bit Badger Blog"
 [Data.fs]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/api/MyPrayerJournal.Api/Data.fs "api/Data.fs | myPrayerJournal | GitHub"
 [Program.fs]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/api/MyPrayerJournal.Api/Program.fs "api/Program.fs | myPrayerJournal | GitHub"
 [Giraffe]: https://github.com/giraffe-fsharp/Giraffe "Giraffe | GitHub"
