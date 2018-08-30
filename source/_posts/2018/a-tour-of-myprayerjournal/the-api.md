@@ -50,7 +50,7 @@ We aren't done with routes just yet, though. Let's take a look at that `notFound
 
 Giraffe uses the term "handler" to define a function that handles a request. Handlers have the signature `HttpFunc -> HttpContext -> Task<HttpContext option>` (aliased as `HttpHandler`), and can be composed via the `>=>` ("fish") operator. The `option` part in the signature is the key in composing handler functions. The `>=>` operator creates a pipeline that sends the output of one function into the input of another; however, if a function fails to return a `Some` option for the `HttpContext` parameter, it short-circuits the remaining logic.<a href="#note-2"><sup>2</sup></a>
 
-The biggest use of that composition in myPrayerJournal is determining if a user is logged in or not. Authorization is also getting its own post, so we'll just focus on the yes/no answer here. The `authorized` handler (line 71) looks for the presence of a user. If it's there, it returns `next ctx`, where `next` is the next `HttpFunc` and `ctx` is the `HttpContext` it received; this results in a `Task<HttpContext option>` which continues to process, hopefully following the happy path and eventually returning `Some`. If the user is not there, though, it returns the `notAuthorized` handler, also passing `next` and `ctx`; however, if we look up to line 67 and the definition of the `notAuthorized` handler, we see that it ignores both `next` and `ctx`, and returns `None`. However, notice that this handler has some fish composition in it; `setStatusCode` returns `Some` (it has succeeded) but we short-circuit the pipeline immediately thereafter.
+The biggest use of that composition in myPrayerJournal is determining if a user is logged in or not. Authorization is also getting [its own post][auth], so we'll just focus on the yes/no answer here. The `authorized` handler (line 71) looks for the presence of a user. If it's there, it returns `next ctx`, where `next` is the next `HttpFunc` and `ctx` is the `HttpContext` it received; this results in a `Task<HttpContext option>` which continues to process, hopefully following the happy path and eventually returning `Some`. If the user is not there, though, it returns the `notAuthorized` handler, also passing `next` and `ctx`; however, if we look up to line 67 and the definition of the `notAuthorized` handler, we see that it ignores both `next` and `ctx`, and returns `None`. However, notice that this handler has some fish composition in it; `setStatusCode` returns `Some` (it has succeeded) but we short-circuit the pipeline immediately thereafter.
 
 We can see this in use in the handler for the `/api/journal` endpoint, starting on line 137. Both `authorize` and the inline function below it have the `HttpHandler` signature, so we can compose them with the `>=>` operator. If a user is signed in, they get a journal; if not, they get a 403.
 
@@ -86,7 +86,7 @@ If this still doesn't make sense, perhaps this will help. The `Configure.kestrel
 
 <p>&nbsp;</p>
 
-That concludes our tour of the API for now, though we'll be looking at it again next time, when we take a deeper dive into authentication and authorization using Auth0.
+That concludes our tour of the API for now, though we'll be looking at it again next time, when we take a deeper dive into [authentication and authorization using Auth0][auth].
 
 ---
 
@@ -103,6 +103,7 @@ That concludes our tour of the API for now, though we'll be looking at it again 
 [Giraffe]: https://github.com/giraffe-fsharp/Giraffe "Giraffe | GitHub"
 [TR]: https://github.com/giraffe-fsharp/Giraffe.TokenRouter "Giraffe.TokenRouter | GitHub"
 [Handlers.fs]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/api/MyPrayerJournal.Api/Handlers.fs "app/Handlers.fs | myPrayerJournal | GitHub"
+[auth]: /2018/a-tour-of-myprayerjournal/authentication.html "A Tour of myPrayerJournal: Authentication | The Bit Badger Blog"
 [Suave]: https://suave.io
 [ROP]: https://fsharpforfunandprofit.com/posts/recipe-part2/ "Railway oriented programming | F# for Fun and Profit"
 [ROP-fish]: https://fsharpforfunandprofit.com/posts/recipe-part2/#an-alternative-to-bind "An alternative to bind | Railway oriented programming | F# for Fun and Profit"
