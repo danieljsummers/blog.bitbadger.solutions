@@ -30,9 +30,23 @@ The final design uses 3 tables, 2 of which have a one-to-many relationship with 
 
 As we ended up using 3 different server environments over the course of this project, we ended up writing a `DbContext` class based on our existing structure. For the Node.js backend, we created a <abbr title="Data Definition Language">DDL</abbr> file ([mpj:ddl.js][ddl.js], v0.8.4+) that checked for the existence of each table and view, and also had the SQL to execute if the check failed. For the Go version ([mpj:data.go][data.go], v0.9.6+), the `EnsureDB` function does a similar thing; looking at line 347, it is checking for a specific column in the `request` table, and running the `ALTER TABLE` statement to add it if it isn't there.
 
+The only change that was required since the F#/Giraffe backend has been in place was the one to support request recurrence. Since we did not end up with a scaffolded EF Core initial migration/model, we simply wrote a SQL script to accomplish these changes ([mpj:sql directory][sql]).<a href="#note-1"><sup>1</sup></a>
+
+## Database Access
+
+EF Core uses the familiar `DbContext` class from prior versions of Entity Framework. myPrayerJournal does take advantage of a feature that just arrived in EF Core 2.1, though - the `DbQuery` type. `DbSet`s are collections of entities that generally map to an underlying database table. They can be mapped to views, but unless it's an updateable view, updating those entities results in a runtime error; plus, since they can't be updated, there's no need for the change tracking mechanism to care about the entities returned. `DbQuery` addresses both these concerns, providing lightweight read-only access to data from views.
+
+The `DbContext` class is defined in Data.fs ([mpj:Data.fs][Data.fs]), starting in line 189.
+
+---
+
+<a name="note-1"><sup>1</sup></a> _Writing this post has shown me that I need to either create a SQL creation script for the repo, or create an EF Core initial migration/model, so the database ever has to be recreated from scratch. It's good to write about things after you do them!_
+
 
 [intro]: /2018/a-tour-of-myprayerjournal/introduction.html "A Tour of myPrayerJournal: Introduction | The Bit Badger Blog"
 [RethinkDB]: https://rethinkdb.com
 [PostgreSQL]: https://www.postgresql.org
 [ddl]: https://github.com/bit-badger/myPrayerJournal/blob/3c3f0a7981fa8f82d3cc904630960ca43c910cd2/src/api/src/db/ddl.js "api/db/ddl.js | myPrayerJournal | GitHub"
 [data.go]: https://github.com/bit-badger/myPrayerJournal/blob/d0ea7cf3c631512ea6b3afba61a25c83aaded6c8/src/api/data/data.go#L307 "api/data/data.go (Line 307) | myPrayerJournal | GitHub"
+[sql]: https://github.com/bit-badger/myPrayerJournal/tree/1.0.0/src/sql "sql | myPrayerJournal | GitHub"
+[Data.fs]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/api/MyPrayerJournal.Api/Data.fs "api/Data.fs | myPrayerJournal | GitHub"
