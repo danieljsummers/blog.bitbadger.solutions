@@ -5,6 +5,7 @@ date: 2018-08-25 08:20:00
 author: Daniel
 categories:
 - [ Programming, JavaScript, Vue ]
+- [ Projects, myPrayerJournal ]
 - [ Series, A Tour of myPrayerJournal ]
 tags:
 - components

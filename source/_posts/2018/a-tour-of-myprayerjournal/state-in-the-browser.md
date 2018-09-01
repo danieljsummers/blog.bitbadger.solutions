@@ -5,6 +5,7 @@ date: 2018-08-26 07:30:00
 author: Daniel
 categories:
 - [ Programming, JavaScript, Vue ]
+- [ Projects, myPrayerJournal ]
 - [ Series, A Tour of myPrayerJournal ]
 tags:
 - action

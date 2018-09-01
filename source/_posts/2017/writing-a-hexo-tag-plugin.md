@@ -5,6 +5,7 @@ date: 2017-09-09 23:45:17
 author: Daniel
 categories:
 - [ Programming, JavaScript, Hexo ]
+- [ Projects, hexo-tag-scripture ]
 tags:
 - bible
 - hexo

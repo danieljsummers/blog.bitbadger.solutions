@@ -6,6 +6,7 @@ author: Daniel
 categories:
 - [ Programming, JavaScript, Vue ]
 - [ Programming, .NET, F# ]
+- [ Projects, myPrayerJournal ]
 - [ Series, A Tour of myPrayerJournal ]
 tags:
 - api

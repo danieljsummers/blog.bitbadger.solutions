@@ -5,6 +5,7 @@ date: 2018-08-29 09:37:00
 author: Daniel
 categories:
 - [ Programming, .NET, F# ]
+- [ Projects, myPrayerJournal ]
 - [ Series, A Tour of myPrayerJournal ]
 tags:
 - api
@@ -36,7 +37,7 @@ Now that we have a wonderful, shiny, [reactive][] [front end][], we need to be a
 
 ## The Data
 
-The entities are defined in Data.fs ([mpj:Data.fs][Data.fs]). We'll dig into them more fully in the upcoming "data store" post, but for now, we'll just focus on the types and fields. We have four types: `History` (lines 33-39), `Note` (lines 67-71), `Request` (lines 94-110), and `JournalRequest` (lines 153-173). A `Request` can have multiple `Note`s and `History` entries, and `JournalRequest` is based on a view that pulls these together and computes things like the current text of the request and when it should be displayed again.
+The entities are defined in Data.fs ([mpj:Data.fs][Data.fs]). We'll dig into them more fully in [the "data store" post][data], but for now, we'll just focus on the types and fields. We have four types: `History` (lines 33-39), `Note` (lines 67-71), `Request` (lines 94-110), and `JournalRequest` (lines 153-173). A `Request` can have multiple `Note`s and `History` entries, and `JournalRequest` is based on a view that pulls these together and computes things like the current text of the request and when it should be displayed again.
 
 We apply no special JSON transformations, so the fields in these record types are the properties in the exported JSON.
 
@@ -99,6 +100,7 @@ That concludes our tour of the API for now, though we'll be looking at it again 
 [reactive]: /2018/a-tour-of-myprayerjournal/state-in-the-browser.html "A Tour of myPrayerJournal: State in the Browser | The Bit Badger Blog"
 [front end]: /2018/a-tour-of-myprayerjournal/the-front-end.html "A Tour of myPrayerJournal: The Front End | The Bit Badger Blog"
 [Data.fs]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/api/MyPrayerJournal.Api/Data.fs "api/Data.fs | myPrayerJournal | GitHub"
+[data]: /2018/a-tour-of-myprayerjournal/the-data-store.html "A Tour of myPrayerJournal: The Data Store | The Bit Badger Blog"
 [Program.fs]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/api/MyPrayerJournal.Api/Program.fs "api/Program.fs | myPrayerJournal | GitHub"
 [Giraffe]: https://github.com/giraffe-fsharp/Giraffe "Giraffe | GitHub"
 [TR]: https://github.com/giraffe-fsharp/Giraffe.TokenRouter "Giraffe.TokenRouter | GitHub"
