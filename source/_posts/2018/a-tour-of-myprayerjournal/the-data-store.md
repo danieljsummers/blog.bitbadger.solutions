@@ -75,7 +75,7 @@ EF Core uses the "unit of work" pattern with its `DbContext` class. Each instanc
 
 This is the problem whose solution is enabled by lines 227-233 in Data.fs. We can manually register an instance of an entity as either added or modified, and when we call `.SaveChanges()`, the runtime will generate the SQL to update the data store accordingly. This also allows us to use `.AsNoTracking()` in our queries (lines 250, 258, 265, and 275), which means that the resultant entities will not be registered with the change tracker, saving that overhead. Notice that we don't specify that on line 243; since `Journal` is defined as a `DbQuery` instead of a `DbSet`, we get change-tracking-avoidance for free.
 
-Generally speaking, the perferred method of writing queries against a `DbContext` instance is to define extension methods against it. These are `static` by default, and they enable the context to be as lightweight as possible, while extending it when necessary. However, since this context is so small, we've created 6 methods on the context that we use to obtain data.
+Generally speaking, the preferred method of writing queries against a `DbContext` instance is to define extension methods against it. These are `static` by default, and they enable the context to be as lightweight as possible, while extending it when necessary. However, since this context is so small, we've created 6 methods on the context that we use to obtain data.
 
 If you've been reading along with the tour, we have already seen a few API handler functions ([mpj:Handlers.fs][Handlers.fs]) that use the data context. Line 137 has the handler for `/api/journal`, the endpoint to retrieve a user's active requests. It uses `.JournalByUserId()`, defined in Data.fs line 242, whose signature is `string -> JournalRequest seq`. (The latter is an F# alias for `IEnumerable<JournalRequest>`.) Back in the handler, we use `db ctx` to get the context (more on that below), then call the method; we're piping the output of `userId ctx` into it, so it gets its lone parameter from the pipe, then its output is piped to the `asJson` function we discussed [as part of the API][api].
 
@@ -101,7 +101,7 @@ Our tour is nearing its end, but we still have a few stops to go. Next time, we'
 [intro]: /2018/a-tour-of-myprayerjournal/introduction.html "A Tour of myPrayerJournal: Introduction | The Bit Badger Blog"
 [RethinkDB]: https://rethinkdb.com
 [PostgreSQL]: https://www.postgresql.org
-[ddl]: https://github.com/bit-badger/myPrayerJournal/blob/3c3f0a7981fa8f82d3cc904630960ca43c910cd2/src/api/src/db/ddl.js "api/db/ddl.js | myPrayerJournal | GitHub"
+[ddl.js]: https://github.com/bit-badger/myPrayerJournal/blob/3c3f0a7981fa8f82d3cc904630960ca43c910cd2/src/api/src/db/ddl.js "api/db/ddl.js | myPrayerJournal | GitHub"
 [data.go]: https://github.com/bit-badger/myPrayerJournal/blob/d0ea7cf3c631512ea6b3afba61a25c83aaded6c8/src/api/data/data.go#L307 "api/data/data.go (Line 307) | myPrayerJournal | GitHub"
 [sql]: https://github.com/bit-badger/myPrayerJournal/tree/1.0.0/src/sql "sql | myPrayerJournal | GitHub"
 [Data.fs]: https://github.com/bit-badger/myPrayerJournal/blob/1.0.0/src/api/MyPrayerJournal.Api/Data.fs "api/Data.fs | myPrayerJournal | GitHub"
