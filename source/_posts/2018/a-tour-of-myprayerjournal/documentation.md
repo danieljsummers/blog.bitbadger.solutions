@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Tour of myPrayerJournal: Documentation"
-date: 2018-09-01 12:37:00
+date: 2018-09-01 20:24:00
 author: Daniel
 categories:
 - [ Projects, myPrayerJournal ]

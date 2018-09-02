@@ -35,7 +35,7 @@ Recently, we released version 1.0 of [myPrayerJournal][], a minimalistic prayer 
 - **[Part 3: The API][part3]** - Giraffe and JSON web endpoints
 - **[Part 4: Authentication][part4]** - Auth0, using information in both app and API
 - **[Part 5: The Data Store][part5]** - EF Core backed by PostgreSQL, with the `DbContext` defined in F#
-- **Part 6: Documentation** - GitHub Pages generated on each commit
+- **[Part 6: Documentation][part6]** - GitHub Pages generated on each commit
 - **Part 7: Conclusion** - Lessons learned and opinions based on the development experience
 
 _(these will be linked once each post has been published)_
@@ -65,6 +65,7 @@ Armed with these requirements, we will pick up next time with a look at the Vue 
 [part3]: /2018/a-tour-of-myprayerjournal/the-api.html "A Tour of myPrayerJournal: The API | The Bit Badger Blog"
 [part4]: /2018/a-tour-of-myprayerjournal/authentication.html "A Tour of myPrayerJournal: Authentication | The Bit Badger Blog"
 [part5]: /2018/a-tour-of-myprayerjournal/the-data-store.html "A Tour of myPrayerJournal: The Data Store | The Bit Badger Blog"
+[part6]: /2018/a-tour-of-myprayerjournal/documentation.html "A Tour of myPrayerJournal: Documentation | The Bit Badger Blog"
 [Angular]: https://angular.io
 [Aurelia]: https://aurelia.io
 [Elm]: http://elm-lang.org
