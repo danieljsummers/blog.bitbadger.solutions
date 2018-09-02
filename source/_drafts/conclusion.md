@@ -36,7 +36,19 @@ None of this is meant as a knock of any of the fine projects I've named up to th
 
 ## You Might Not Need...
 
-## Communities Are Helpful
+We mentioned above that the site eventually was written with simple HTML and CSS. Many of the more popular pacakges and utilities were created to make up for deficiencies, either in the browser ecosystem or among the differing browser vendors. With the recent efforts by browser vendors to support published standards, though, many of these packages are used for reasons that distill to comfort and inertia. As before, this is not a knock on these projects; they filled a definite need, and continue to work as the basis for a lot of deployed, executing code.
+
+For new development, though, existing standards -- and their support -- may be sufficient. There are some great sites that detail how certain things can be done using plain JavaScript or CSS.
+- [You Might Not Need jQuery][jq]
+- [You Might Not Need Bootstrap][boot] _(for this one, you have to read the HTML yourself; looks like it's not hosted at the given URL anymore)_
+- [You Might Not Need Lodash][lodash]
+- [Can I Use ___?][ciu]
+
+I used the last one quite a bit. I also extensively referred to [CSS Tricks' "A Complete Guide to Flexbox"][flexbox] post. When I decided to rework the layout without Bootstrap, I thought the replacement would be CSS Grid; however, Flexbox was more than enough.
+
+**Lesson**: Use a framework if you want, but don't assume it's the only way to do things.
+
+**Lesson**: If you want to shrink your bundle size, 20-30 lines of your own code can sometimes save you 20-30K (or more).
 
 ## Learn Go
 
@@ -46,7 +58,7 @@ None of this is meant as a knock of any of the fine projects I've named up to th
 > Go would be it.
 > -- [with apologies to Baz Luhrmann][ws]
 
-[Go][] is a systems programming language. It was developed at Google, to help them better utilize their hardware. It natively supports concurrent processing (which can be done in parallel, but is distinct from "parallel programming"); has an opinionated code formatter; forces you to address calls that may error; and is terribly efficient. When myPrayerJournal was running with the Go backend, the working size in RAM was around 10MB. Let me say that again, this time with feeling - **the working size for a database-accessing, HTTP-listening, dynamic web service was 10MB of RAM!** If you have ever profiled a web server process, you know that it's nearly ludicrous how small this is. For comparison, the process working set for the F#/Giraffe/EF Core version of the backend runs between 60-80MB, and includes another ~256MB of shared working set memory.<a href="note-x"><sup>x</sup></a> (An Apache2 process running PHP can run in the 256MB range as well.)
+[Go][] is a systems programming language. It was developed at Google, to help them better utilize their hardware. It natively supports concurrent processing (which can be done in parallel, but is distinct from "parallel programming"); has an opinionated code formatter; forces you to address calls that may error; and is terribly efficient. When myPrayerJournal was running with the Go backend, the working size in RAM was around 10MB. Let me say that again, this time with feeling - **the working size for a database-accessing, HTTP-listening, dynamic web service was 10MB of RAM!** If you have ever profiled a web server process, you know that it's nearly ludicrous how small this is. For comparison, the process working set for the F#/Giraffe/EF Core version of the backend runs between 60-80MB, and includes another ~256MB of shared working set memory.<a href="note-2"><sup>2</sup></a> (An Apache2 process running PHP can run in the 256MB range as well.)
 
 Why am I recommending a technology that I ultimately moved away from before the v1.0 release? Well, other than "did you read the last paragraph?!?!", the short answer is "it's the future, and will change how you code in every other language." The fact that it forces you to deal with every single thing that may error makes it robust; but, if you learn to develop with it, you will find yourself thinking about error handling more fully than you did before -- and I say this as a person who already coded error handlers as I coded the happy path.
 
@@ -58,13 +70,13 @@ I also found the development process awkward, though not unwieldy. _(They're pro
 
 <p>&nbsp;</p>
 
-If you've been with us for this entire tour -- thank you. I hope you've learned something; I know I have, not just through the development of [myPrayerJournal][], but through the course of writing about it. And, certainly, if you feel that this application could help you in any way, help yourself. It is and will always be free, and [Bit Badger Solutions][bbs] (and DJS Consulting before it) has, as of this writing, a 14-year streak of no known data breaches; your prayer requests are safe with me.
+If you've been with us for this entire tour -- thank you. I hope you've learned something; I know I have, not just through the development of [myPrayerJournal][], but through the course of writing about it. And, certainly, if you feel that this application could help you in any way, help yourself. It is and will always be free, and [Bit Badger Solutions][bbs] (and DJS Consulting before it) has, as of this writing, a 14-year streak of no known data breaches; your prayer requests are safe with us.
 
 ---
 
 <a name="note-1"><sup>1</sup></a> _There are chunk-splitting techniques that can be used to make the initial download smaller, and have the other "chunks" be loaded on-demand. The moment.js portion, for example, isn't needed for the default "Welcome to myPrayerJournal" page. With caching, we could defer that loading until the user has logged in; the journal page definitely needs it. Performance tweak opportunities exist, but 283K is just above the 244K suggested bundle size, so we went forward with it._
 
-<a name="note-x"><sup>x</sup></a> _The server on which I host myPrayerJournal already has other .NET Core processes running on it, so the shared memory size has already been allocated._
+<a name="note-2"><sup>2</sup></a> _The server on which I host myPrayerJournal already has other .NET Core processes running on it, so the shared memory size has already been allocated._
 
 
 [intro]: /2018/a-tour-of-myprayerjournal/introduction.html "A Tour of myPrayerJournal: Introduction | The Bit Badger Blog"
@@ -74,6 +86,11 @@ If you've been with us for this entire tour -- thank you. I hope you've learned 
 [Vue-Awesome]: https://github.com/Justineo/vue-awesome "Vue-Awesome | GitHub"
 [moment.js]: https://momentjs.com "Moment.js"
 [Webpack]: https://webpack.js.org "Webpack"
+[jq]: http://youmightnotneedjquery.com "You Might Not Need jQuery"
+[boot]: https://github.com/stuyam/YouMightNotNeedBootstrap/tree/gh-pages "You Might Not Need Bootstrap | GitHub"
+[lodash]: https://youmightnotneed.com/lodash "You Might Not Need Lodash"
+[ciu]: https://caniuse.com "Can I Use ___?"
+[flexbox]: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ "A Complete Guide to Flexbox | CSS Tricks"
 [ws]: http://www.metrolyrics.com/everybodys-free-to-wear-sunscreen-lyrics-baz-luhrmann.html "Everybody's Free (to Wear Sunscreen) - Baz Luhrmann | Metro Lyrics"
 [Go]: https://golang.org "The Go Programming Language"
 [myPrayerJournal]: https://prayerjournal.me "myPrayerJournal"
