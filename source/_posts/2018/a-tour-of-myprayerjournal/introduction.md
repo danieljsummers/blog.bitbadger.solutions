@@ -36,9 +36,7 @@ Recently, we released version 1.0 of [myPrayerJournal][], a minimalistic prayer 
 - **[Part 4: Authentication][part4]** - Auth0, using information in both app and API
 - **[Part 5: The Data Store][part5]** - EF Core backed by PostgreSQL, with the `DbContext` defined in F#
 - **[Part 6: Documentation][part6]** - GitHub Pages generated on each commit
-- **Part 7: Conclusion** - Lessons learned and opinions based on the development experience
-
-_(these will be linked once each post has been published)_
+- **[Part 7: Conclusion][part7]** - Lessons learned and opinions based on the development experience
 
 From a technical perspective, this application was going to be a learning experience. We knew we wanted to use a Single Page Application (SPA) framework with an API; we'd built APIs before, but had yet to build a SPA. For front-end frameworks, we started with [Angular][], went through [Aurelia][] and [Elm][], then decided on [Vue][]. For the back-end API, we started with [Suave][], then went live on [Node.js][] with [Koa][]; later, we moved it to [Go][], and after .NET Core 2.1 was released, landed on [Giraffe][]. The "learning experience" part was a success; through all these attempts, we utilized 5 different languages and 3 different database access techniques.
 
@@ -66,6 +64,7 @@ Armed with these requirements, we will pick up next time with a look at the Vue 
 [part4]: /2018/a-tour-of-myprayerjournal/authentication.html "A Tour of myPrayerJournal: Authentication | The Bit Badger Blog"
 [part5]: /2018/a-tour-of-myprayerjournal/the-data-store.html "A Tour of myPrayerJournal: The Data Store | The Bit Badger Blog"
 [part6]: /2018/a-tour-of-myprayerjournal/documentation.html "A Tour of myPrayerJournal: Documentation | The Bit Badger Blog"
+[part7]: /2018/a-tour-of-myprayerjournal/conclusion.html "A Tour of myPrayerJournal: Conclusion | The Bit Badger Blog"
 [Angular]: https://angular.io
 [Aurelia]: https://aurelia.io
 [Elm]: http://elm-lang.org
